@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Home from './pages/Home'
+import Hiragana from './pages/Hiragana'
+import Katakana from './pages/Katakana'
+import _hiragana from './pages/_hiragana';
+import _katakana from './pages/_katakana';
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path = "/" component={Home}/>
+      <Route exact path = "/hiragana" component={Hiragana}/>
+      <Route exact path = "/hiragana/:id" component={_hiragana}/>
+      <Route exact path = "/katakana" component={Katakana}/>
+      <Route exact path = "/katakana/:id" component={_katakana}/>
+    </Switch>
   );
 }
 
